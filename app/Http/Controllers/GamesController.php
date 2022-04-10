@@ -71,6 +71,7 @@ class GamesController extends Controller
     }
 
     ////////// TRAER UN GAME POR ID //////////
+
     public function gameByID($id)
     {
         Log::info('gameByID()');
@@ -86,6 +87,70 @@ class GamesController extends Controller
             Log::info('Tasks done');
 
             return response()->json($game, 200);
+
+        } catch (\Exception $e) {
+
+            Log::error($e->getMessage());
+
+            return response()->json(['message' => 'Something went wrong'], 500);
+        }
+    }
+
+    ////////// ACTUALIZAR UN GAME //////////
+
+    public function updateGame($id, Request $request)
+    {
+        Log::info('updateGame()');
+
+        $title = $request->input('title');
+        $thumbnail_url = $request->input('thumbnail_url');
+        $url = $request->input('url');
+
+        try {
+
+            $game = Game::find($id);
+
+            if (!$game) {
+                return response()->json(['message' => 'Game not found'], 404);
+            }
+
+            $game->title = $title;
+            $game->thumbnail_url = $thumbnail_url;
+            $game->url = $url;
+
+            $game->save();
+
+            Log::info('Tasks done');
+
+            return response()->json($game, 200);
+
+        } catch (\Exception $e) {
+
+            Log::error($e->getMessage());
+
+            return response()->json(['message' => 'Something went wrong'], 500);
+        }
+    }
+
+    ////////// ELIMINAR UN GAME //////////
+    
+    public function deleteGame($id)
+    {
+        Log::info('deleteGame()');
+
+        try {
+
+            $game = Game::find($id);
+
+            if (!$game) {
+                return response()->json(['message' => 'Game not found'], 404);
+            }
+
+            $game->delete();
+
+            Log::info('Tasks done');
+
+            return response()->json(['message' => 'Game deleted'], 200);
 
         } catch (\Exception $e) {
 
