@@ -56,4 +56,5 @@ Route::group([
     Route::get('/parties/{id}', [GamesController::class, 'partyByID']);
     Route::put('/parties/{id}', [GamesController::class, 'updateParty']);
     Route::delete('/parties/{id}', [GamesController::class, 'destroyParty']);
+    Route::post('/partie/game/{id}', [PartyController::class, "partiesByGameID"]);
 });
