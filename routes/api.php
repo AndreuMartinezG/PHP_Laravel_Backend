@@ -58,3 +58,16 @@ Route::group([
     Route::delete('/parties/{id}', [GamesController::class, 'destroyParty']);
     Route::post('/partie/game/{id}', [PartyController::class, "partiesByGameID"]);
 });
+
+
+//CRUD MESSAGES
+Route::group([
+    'middleware' => 'jwt.auth'
+], function () {
+    Route::get('/messages', [GamesController::class, 'allMessages']);
+    Route::post('/messages', [GamesController::class, 'newMessage']);
+    Route::get('/messages/{id}', [GamesController::class, 'messageByID']);
+    Route::put('/messages/{id}', [GamesController::class, 'updateMessage']);
+    Route::delete('/messages/{id}', [GamesController::class, 'destroyMessage']);
+    Route::post('/message/party/{id}', [PartyController::class, "messagesByPartyID"]);
+});
