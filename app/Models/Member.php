@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     use HasFactory;
+    
+    public $fillable = [
+        'PartyID',
+        'PlayerID'
+    ];
+
+    public function parties()
+    {
+        return $this->belongsTo(Party::class);
+    }
+
+    public function players()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
