@@ -29,7 +29,9 @@ class AuthController extends Controller
         $user = User::create([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            'role' => $request->get('role'),
+            'steamUsername' => $request->get('steamUsername'),
         ]);
 
         $token = JWTAuth::fromUser($user);
@@ -68,7 +70,7 @@ class AuthController extends Controller
 
 
     ///////////////// LOGOUT ///////////////////////
-    
+
     public function logout(Request $request)
     {
         $this->validate($request, [
