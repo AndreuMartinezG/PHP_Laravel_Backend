@@ -15,6 +15,22 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('PartyID');
+            $table->foreign('PartyID')
+            ->references('id')
+            ->on('parties')
+            ->unsigned()
+            ->constrained('parties')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->unsignedInteger('PlayerID');
+            $table->foreign('PlayerID')
+            ->references('id')
+            ->on('users')
+            ->unsigned()
+            ->constrained('users')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
