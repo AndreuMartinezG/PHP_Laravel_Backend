@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GamesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-// AUTH
+// CRUD AUTH
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -30,4 +31,17 @@ Route::group([
 ], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/me', [AuthController::class, 'me']);
+});
+
+
+
+//CRUD GAMES
+Route::group([
+    'middleware' => 'jwt.auth'
+], function () {
+    Route::get('/games', [GamesController::class, 'allGames']);
+    Route::post('/games', [GamesController::class, 'newGame']);
+    Route::get('/games/{id}', [GamesController::class, 'gameByID']);
+    Route::put('/games/{id}', [GamesController::class, 'updateGame']);
+    Route::delete('/games/{id}', [GamesController::class, 'destroyGame']);
 });
