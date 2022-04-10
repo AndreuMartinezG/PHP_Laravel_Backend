@@ -65,7 +65,7 @@ class MemberController extends Controller
     }
 
     ////////// TRAER UN MEMBER POR ID //////////
-    public function getMember($id)
+    public function memberByID($id)
     {
         Log::info('getMember()');
 

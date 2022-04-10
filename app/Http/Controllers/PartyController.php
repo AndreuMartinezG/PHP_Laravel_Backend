@@ -71,7 +71,7 @@ class PartyController extends Controller
 
 
         ////////// TRAER UNA PARTY POR ID //////////
-        public function getParty($id)
+        public function partyByID($id)
         {
             Log::info('getParty()');
 
