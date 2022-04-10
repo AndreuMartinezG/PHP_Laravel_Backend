@@ -127,4 +127,49 @@ class PartyController extends Controller
                 return response()->json(['message' => 'Something went wrong'], 500);
             }
         }
+
+        ////////// ELIMINAR UNA PARTY POR ID //////////
+        public function deleteParty($id)
+        {
+            Log::info('deleteParty()');
+
+            try {
+
+                $party = Party::find($id);
+
+                $party->delete();
+
+                Log::info('Tasks done');
+
+                return response()->json(['message' => 'Party deleted'], 200);
+
+            } catch (\Exception $e) {
+
+                Log::error($e->getMessage());
+
+                return response()->json(['message' => 'Something went wrong'], 500);
+            }
+        }
+
+        ////////// TRAER TODAS LAS PARTIES POR GAME ID //////////
+        public function partiesByGameID($id)
+        {
+            Log::info('partiesByGameID()');
+
+            try {
+
+                $parties = Party::where('GameID', $id)->get();
+
+                Log::info('Tasks done');
+
+                return response()->json($parties, 200);
+
+            } catch (\Exception $e) {
+
+                Log::error($e->getMessage());
+
+                return response()->json(['message' => 'Something went wrong'], 500);
+            }
+        }
+
 }
