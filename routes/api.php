@@ -59,11 +59,11 @@ Route::group([
 Route::group([
     'middleware' => 'jwt.auth'
 ], function () {
-    Route::get('/parties', [GamesController::class, 'allParties']);
-    Route::post('/parties', [GamesController::class, 'newParty']);
-    Route::get('/parties/{id}', [GamesController::class, 'partyByID']);
-    Route::put('/parties/{id}', [GamesController::class, 'updateParty']);
-    Route::delete('/parties/{id}', [GamesController::class, 'deleteParty']);
+    Route::get('/parties', [PartyController::class, 'allParties']);
+    Route::post('/parties', [PartyController::class, 'newParty']);
+    Route::get('/parties/{id}', [PartyController::class, 'partyByID']);
+    Route::put('/parties/{id}', [PartyController::class, 'updateParty']);
+    Route::delete('/parties/{id}', [PartyController::class, 'deleteParty']);
     Route::post('/partie/game/{id}', [PartyController::class, "partiesByGameID"]);
 });
 
@@ -72,12 +72,12 @@ Route::group([
 Route::group([
     'middleware' => 'jwt.auth'
 ], function () {
-    Route::get('/messages', [GamesController::class, 'allMessages']);
-    Route::post('/messages', [GamesController::class, 'newMessage']);
-    Route::get('/messages/{id}', [GamesController::class, 'messageByID']);
-    Route::put('/messages/{id}', [GamesController::class, 'updateMessage']);
-    Route::delete('/messages/{id}', [GamesController::class, 'deleteMessage']);
-    Route::post('/message/party/{id}', [PartyController::class, "messagesByPartyID"]);
+    Route::get('/messages', [MessageController::class, 'allMessages']);
+    Route::post('/messages', [MessageController::class, 'newMessage']);
+    Route::get('/messages/{id}', [MessageController::class, 'messageByID']);
+    Route::put('/messages/{id}', [MessageController::class, 'updateMessage']);
+    Route::delete('/messages/{id}', [MessageController::class, 'deleteMessage']);
+    Route::post('/message/party/{id}', [MessageController::class, "messagesByPartyID"]);
 });
 
 
@@ -85,10 +85,10 @@ Route::group([
 Route::group([
     'middleware' => 'jwt.auth'
 ], function () {
-    Route::get('/members', [GamesController::class, 'allMembers']);
-    Route::post('/members', [GamesController::class, 'newMember']);
-    Route::get('/members/{id}', [GamesController::class, 'memberByID']);
-    Route::put('/members/{id}', [GamesController::class, 'updateMember']);
-    Route::delete('/members/{id}', [GamesController::class, 'deleteMember']);
-    Route::post('/member/party/{id}', [PartyController::class, "membersByPartyID"]);
+    Route::get('/members', [MemberController::class, 'allMembers']);
+    Route::post('/members', [MemberController::class, 'newMember']);
+    Route::get('/members/{id}', [MemberController::class, 'memberByID']);
+    Route::put('/members/{id}', [MemberController::class, 'updateMember']);
+    Route::delete('/members/{id}', [MemberController::class, 'deleteMember']);
+    Route::post('/member/party/{id}', [MemberController::class, "membersByPartyID"]);
 });

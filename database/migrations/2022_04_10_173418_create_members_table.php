@@ -15,7 +15,7 @@ class CreateMembersTable extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('PartyID');
+            $table->unsignedBigInteger('PartyID');
             $table->foreign('PartyID')
             ->references('id')
             ->on('parties')
@@ -23,7 +23,7 @@ class CreateMembersTable extends Migration
             ->constrained('parties')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->unsignedInteger('PlayerID');
+            $table->unsignedBigInteger('PlayerID');
             $table->foreign('PlayerID')
             ->references('id')
             ->on('users')
