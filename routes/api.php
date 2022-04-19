@@ -64,7 +64,7 @@ Route::group([
     Route::get('/parties/{id}', [PartyController::class, 'partyByID']);
     Route::put('/parties/{id}', [PartyController::class, 'updateParty']);
     Route::delete('/parties/{id}', [PartyController::class, 'deleteParty']);
-    Route::post('/partie/game/{id}', [PartyController::class, "partiesByGameID"]);
+    Route::get('/partie/game/{id}', [PartyController::class, "partiesByGameID"]);
 });
 
 
@@ -77,7 +77,7 @@ Route::group([
     Route::get('/messages/{id}', [MessageController::class, 'messageByID']);
     Route::put('/messages/{id}', [MessageController::class, 'updateMessage']);
     Route::delete('/messages/{id}', [MessageController::class, 'deleteMessage']);
-    Route::post('/message/party/{id}', [MessageController::class, "messagesByPartyID"]);
+    Route::get('/message/party/{id}', [MessageController::class, "messagesByPartyID"]);
 });
 
 
@@ -90,5 +90,5 @@ Route::group([
     Route::get('/members/{id}', [MemberController::class, 'memberByID']);
     Route::put('/members/{id}', [MemberController::class, 'updateMember']);
     Route::delete('/members/{id}', [MemberController::class, 'deleteMember']);
-    Route::post('/member/party/{id}', [MemberController::class, "membersByPartyID"]);
+    Route::get('/member/party/{id}', [MemberController::class, "membersByPartyID"]);
 });
