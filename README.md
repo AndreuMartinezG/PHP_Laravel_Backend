@@ -1,64 +1,289 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Game site for Workers - Backend
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+![image](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
+![image](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![image](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![image](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![image](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## 0. Indice:
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+  [1. Introduccion:](#1-introducción)<br>
+  [2. Como Usar:](#3-descripción-del-proyecto)<br>
+  [3. Herramientas Utilizadas:](#5herramientas-utilizadas)<br>
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 1. Introducción.
 
-## Code of Conduct
+- Dada la situación sanitaria, una empresa tecnológica ha estado trabajando en
+remoto desde marzo de 2020. Esto ha implicado que nuestros compañeros
+hayan perdido el contacto humano que siempre se ha tenido, y es algo que la
+empresa desea cambiar.
+- La empresa quiere dar un impulso a la manera que tienen los trabajadores de
+relacionarse, permitiendo que contacten entre ellos creando grupos de interés.
+Una primera fase de este proyecto es crear un BACKEND, que
+permita que los empleados puedan contactar con otros compañeros para
+formar grupos para jugar a un videojuego, con el objetivo de poder compartir
+un rato de ocio afterwork. <br>
+  
+- BackEnd and BBDD Deployed on [HEROKU](https://php-laravel-backend.herokuapp.com)<br>
+- Aquí una imagen del diseño de la Base de datos :
+  
+![image](img/db.png) 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 2. Como Usar.
 
-## Security Vulnerabilities
+- Este proyecto esta deployado en HEROKU por lo cual para probarlo solo tendras que tener una herramienta llamada POSTMAN la cual te permite probar el CRUD de los endpoints.
+  <br>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- A traves de este enlace tendras todos los endpoints con sus campos para que resulte mas sencillo probar el backend:
+  
+ [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/f92903917e2ce0f81955?action=collection%2Fimport)
 
-## License
+- Tendrás que registrarte por POSTMAN y hacer Login para obtener el JWT, que te autorizara a ejecutar el resto de EndPoints.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+<br>
+    
+A continuacion se describen las posibilidades que tienes:
+
+### EndPoints de Users :
+
+Ejemplo: https://php-laravel-backend.herokuapp.com/api/register
+
+- Registro :
+  
+  ```bash
+  Route::post('/register', [AuthController::class, 'register']);
+  ```
+
+- Login : 
+  
+  ```bash
+  Route::post('/login', [AuthController::class, 'login']);
+  ```
+
+- Logout : 
+  
+  ```bash
+  Route::post('/logout', [AuthController::class, 'logout']);
+  ```
+
+- Profile :
+  
+   ```bash
+  Route::get('/me', [AuthController::class, 'me']);
+  ```
+
+- All Users :
+  
+   ```bash
+  Route::get('/users', [UserController::class, 'allUsers']);
+  ```
+
+- User By Id :
+  
+   ```bash
+  Route::get('/users/{id}', [UserController::class, 'userByID']);
+  ```
+
+- Update User By Id :
+  
+   ```bash
+  Route::put('/users/{id}', [UserController::class, 'updateUser']);
+  ```
+
+- Delete User By Id :
+  
+   ```bash
+  Route::delete('/users/{id}', [UserController::class, 'deleteUser']);
+  ```
+
+
+<br>
+
+
+### EndPoints de Games :
+
+Ejemplo: https://php-laravel-backend.herokuapp.com/api/games
+
+- All Games :
+  
+  ```bash
+  Route::get('/games', [GamesController::class, 'allGames']);
+  ```
+
+- New Game :
+  
+  ```bash
+  Route::post('/games', [GamesController::class, 'newGame']);
+  ```
+
+- Get Game By ID :
+  
+  ```bash
+  Route::get('/games/{id}', [GamesController::class, 'gameByID']);
+  ```
+
+- Update Game By ID :
+  
+  ```bash
+  Route::put('/games/{id}', [GamesController::class, 'updateGame']);
+  ```
+
+- Dalete Game By ID :
+  
+  ```bash
+  Route::delete('/games/{id}', [GamesController::class, 'deleteGame']);
+  ```
+
+<br>
+
+### EndPoints de Parties :
+
+Ejemplo: https://php-laravel-backend.herokuapp.com/api/parties
+
+- All Parties :
+  
+  ```bash
+  Route::get('/parties', [PartyController::class, 'allParties']);
+  ```
+
+- New Party :
+  
+  ```bash
+  Route::post('/parties', [PartyController::class, 'newParty']);
+  ```
+
+- Get Party By ID :
+  
+  ```bash
+  Route::get('/parties/{id}', [PartyController::class, 'partyByID']);
+  ```
+
+- Update Party By ID :
+  
+  ```bash
+  Route::put('/parties/{id}', [PartyController::class, 'updateParty']);
+  ```
+
+- Delete Party By ID :
+  
+  ```bash
+  Route::delete('/parties/{id}', [PartyController::class, 'deleteParty']);
+  ```
+
+- Get Parties By GAME ID :
+  
+  ```bash
+  Route::get('/partie/game/{id}', [PartyController::class, "partiesByGameID"]);
+  ```
+   
+<br>
+
+### EndPoints de Messages :
+
+Ejemplo: https://php-laravel-backend.herokuapp.com/api/messages
+
+- All Messages :
+  
+  ```bash
+  Route::get('/messages', [MessageController::class, 'allMessages']);
+  ```
+
+- New Messages :
+  
+  ```bash
+  Route::post('/messages', [MessageController::class, 'newMessage']);
+  ```
+
+- Get Messages By ID :
+  
+  ```bash
+  Route::get('/messages/{id}', [MessageController::class, 'messageByID']);
+  ```
+
+- Update Message By ID :
+  
+  ```bash
+  Route::put('/messages/{id}', [MessageController::class, 'updateMessage']);
+  ```
+
+- Delete Message By ID :
+  
+  ```bash
+  Route::delete('/messages/{id}', [MessageController::class, 'deleteMessage']);
+  ```
+
+- Get Messages By PARTY ID :
+  
+  ```bash
+  Route::get('/message/party/{id}', [MessageController::class, "messagesByPartyID"]);
+  ```
+   
+
+<br>
+
+### EndPoints de Members :
+
+Ejemplo: https://php-laravel-backend.herokuapp.com/api/members
+
+- All Members :
+  
+  ```bash
+  Route::get('/members', [MemberController::class, 'allMembers']);
+  ```
+
+- New Member :
+  
+  ```bash
+  Route::post('/members', [MemberController::class, 'newMember']);
+  ```
+
+- Get Member By ID :
+  
+  ```bash
+  RRoute::get('/members/{id}', [MemberController::class, 'memberByID']);
+  ```
+
+- Update Member By ID :
+  
+  ```bash
+  Route::put('/members/{id}', [MemberController::class, 'updateMember']);
+  ```
+
+- Delete Member By ID :
+  
+  ```bash
+  Route::delete('/members/{id}', [MemberController::class, 'deleteMember']);
+  ```
+
+- Get Members By PARTY ID :
+  
+  ```bash
+  Route::get('/member/party/{id}', [MemberController::class, "membersByPartyID"]);
+  ```
+
+<br>
+
+## 3. Herramientas Utilizadas.
+
+- MySQL Workbench - (BBDD)
+- Visual Studio Code - (DEV)
+- Postman - (DEBUG)
+- Heroku - (DEPLOY)
+
+<br>
+
+
+[Subir](#top)
