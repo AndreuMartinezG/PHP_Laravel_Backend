@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Party;
 use App\Models\User;
+use App\Models\Member;
 
 class MemberController extends Controller
 {
