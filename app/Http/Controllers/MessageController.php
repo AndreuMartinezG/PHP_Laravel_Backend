@@ -39,10 +39,10 @@ class MessageController extends Controller
         try {
 
             $validator = Validator::make($request->all(), [
-                'title' => 'required|string|max:255',
-                'content' => 'required|string|max:255',
-                'user_id' => 'required|integer',
-                'party_id' => 'required|integer',
+                'date' => 'required|string|max:255',
+                'message' => 'required|string|max:255',
+                'FromPlayer' => 'required|integer',
+                'PartyID' => 'required|integer',
             ]);
 
             if ($validator->fails()) {
@@ -50,10 +50,10 @@ class MessageController extends Controller
             }
 
             $message = Message::create([
-                'title' => $request->title,
-                'content' => $request->content,
-                'user_id' => $request->user_id,
-                'party_id' => $request->party_id,
+                'date' => $request->date,
+                'message' => $request->message,
+                'FromPlayer' => $request->FromPlayer,
+                'PartyID' => $request->PartyID,
             ]);
 
             Log::info('Tasks done');
@@ -97,10 +97,10 @@ class MessageController extends Controller
         try {
 
             $validator = Validator::make($request->all(), [
-                'title' => 'required|string|max:255',
-                'content' => 'required|string|max:255',
-                'user_id' => 'required|integer',
-                'party_id' => 'required|integer',
+                'date' => 'required|string|max:255',
+                'message' => 'required|string|max:255',
+                'FromPlayer' => 'required|integer',
+                'PartyID' => 'required|integer',
             ]);
 
             if ($validator->fails()) {
@@ -109,10 +109,10 @@ class MessageController extends Controller
 
             $message = Message::find($id);
 
-            $message->title = $request->title;
-            $message->content = $request->content;
-            $message->user_id = $request->user_id;
-            $message->party_id = $request->party_id;
+            $message->date = $request->date;
+            $message->message = $request->message;
+            $message->FromPlayer = $request->FromPlayer;
+            $message->PartyID = $request->PartyID;
 
             $message->save();
 
@@ -151,14 +151,14 @@ class MessageController extends Controller
         }
     }
 
-    ////////// TRAER TODOS LOS MESSAGES POR PARTY_ID //////////
+    ////////// TRAER TODOS LOS MESSAGES POR PartyID //////////
     public function messagesByPartyID($id)
     {
         Log::info('messagesByPartyID()');
 
         try {
 
-            $messages = Message::where('party_id', $id)->get();
+            $messages = Message::where('PartyID', $id)->get();
 
             Log::info('Tasks done');
 
